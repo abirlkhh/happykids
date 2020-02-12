@@ -1,0 +1,11 @@
+abir_club:
+    resource: "@AbirBundle/Resources/config/routing/club.yml"
+    prefix:   /club
+
+abir_evenement:
+    resource: "@AbirBundle/Resources/config/routing/evenement.yml"
+    prefix:   /evenement
+
+abir_homepage:
+    path:     /index
+    defaults: { _controller: AbirBundle:Default:index }

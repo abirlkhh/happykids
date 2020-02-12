@@ -1,0 +1,37 @@
+
+    <h1>Club</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ club.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom du club</th>
+                <td>{{ club.nomC }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ club.type }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ club.descrip }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('club_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('club_edit', { 'id': club.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>

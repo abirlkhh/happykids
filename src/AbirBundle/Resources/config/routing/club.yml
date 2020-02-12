@@ -1,0 +1,24 @@
+club_index:
+    path:     /
+    defaults: { _controller: "AbirBundle:club:index" }
+    methods:  GET
+
+club_show:
+    path:     /{id}/show
+    defaults: { _controller: "AbirBundle:club:show" }
+    methods:  GET
+
+club_new:
+    path:     /new
+    defaults: { _controller: "AbirBundle:club:new" }
+    methods:  [GET, POST]
+
+club_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AbirBundle:club:edit" }
+    methods:  [GET, POST]
+
+club_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AbirBundle:club:delete" }
+    methods:  DELETE

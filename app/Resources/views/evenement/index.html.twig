@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h1>Evenements list</h1>
+
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Datee</th>
+                <th>Lieu</th>
+                <th>Description</th>
+                <th>Ticket</th>
+                <th>Tarif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td><a href="{{ path('evenement_show', { 'id': evenement.id }) }}">{{ evenement.id }}</a></td>
+                <td>{{ evenement.titre }}</td>
+                <td>{% if evenement.dateE %}{{ evenement.dateE|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.ticket }}</td>
+                <td>{{ evenement.tarif }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('evenement_show', { 'id': evenement.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('evenement_edit', { 'id': evenement.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evenement_new') }}">Create a new evenement</a>
+        </li>
+    </ul>
+{% endblock%}

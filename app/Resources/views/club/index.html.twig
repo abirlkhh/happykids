@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h1>Clubs list</h1>
+
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom du club </th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td><a href="{{ path('club_show', { 'id': club.id }) }}">{{ club.id }}</a></td>
+                <td>{{ club.nomC }}</td>
+                <td>{{ club.type }}</td>
+                <td>{{ club.descrip }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('club_show', { 'id': club.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('club_edit', { 'id': club.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('club_new') }}">Create a new club</a>
+        </li>
+    </ul>
+
+{%endblock%}
