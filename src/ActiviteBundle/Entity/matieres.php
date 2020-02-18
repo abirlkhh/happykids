@@ -23,6 +23,7 @@ class matieres
 
     /**
      * @var string
+     * @Assert\Length(min=4,max=255)
      *@Assert\Type("alpha")
      * @ORM\Column(name="nomMatiere", type="string", length=255)
      */

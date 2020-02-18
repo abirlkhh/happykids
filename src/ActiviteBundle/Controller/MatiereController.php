@@ -26,11 +26,10 @@ class MatiereController extends Controller
         $form = $this->createForm(matieresType::class, $matiere);
         $form->handleRequest($request);
         $form1 = $form->createView();
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted()&&$form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($matiere);
             $em->flush();
-
             return $this->redirectToRoute("afficherMatiere");
         }
         return $this->render('@Activite/Activite/ajouterMatiere.html.twig', array('form1' => $form1));
@@ -76,7 +75,6 @@ class MatiereController extends Controller
         if(!$matiere) {
             $result['matieres']= "Not found :( ";
         } else {
-            $result['idMatiere'] = $matiere->getIdMatiere();
             $result['nomMatiere'] = $matiere->getNomMatiere();
             $result['sections'] = $matiere->getSections();
 

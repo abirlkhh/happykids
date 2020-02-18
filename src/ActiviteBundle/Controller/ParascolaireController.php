@@ -20,7 +20,7 @@ class ParascolaireController extends Controller
         $user = $this->getUser();
         if ($user != null) {
             if ($user->getRoles()[0] == "MONITEUR") {
-                $this->SMSAction();
+
         $parascolaire=new parascolaire();
         $form = $this->createForm(parascolaireType::class, $parascolaire);
         $form->handleRequest($request);
@@ -33,7 +33,7 @@ class ParascolaireController extends Controller
         }
         return $this->render('@Activite/Activite/ajouterParascolaire.html.twig', array('f' => $form1));
             }
-
+            $this->SMSAction();
         }
         return $this->redirectToRoute("fos_user_security_login");
     }
