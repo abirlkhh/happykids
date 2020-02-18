@@ -17,7 +17,7 @@ class parascolaireType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('typeParascolaire',ChoiceType::class,['choices'=>['CHOISISSEZ' => '','VISITE CULTUREL' => 'VISITE CULTUREL',  'EXCURSION' => 'EXCURSION','SORTIE EN NATURE' => 'SORTIE EN NATURE']])
+        $builder->add('typeParascolaire',ChoiceType::class,['choices'=>['CHOISISSEZ' => '','VISITE' => 'VISITE CULTUREL',  'EXCURSION' => 'EXCURSION','SORTIE EN NATURE' => 'SORTIE EN NATURE']])
                 ->add('lieuParascolaire')
                 ->add('dateDebutParascolaire')
                 ->add('dateFinParascolaire')
