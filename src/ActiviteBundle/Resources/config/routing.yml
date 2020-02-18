@@ -1,0 +1,36 @@
+activite_homepage:
+    path:     /
+    defaults: { _controller: ActiviteBundle:Default:index }
+afficherMatiere:
+    path:     /afficherMatiere
+    defaults: { _controller: ActiviteBundle:Matiere:afficherMatiere }
+ajouterMatiere:
+    path:     /ajouterMatiere
+    defaults: { _controller: ActiviteBundle:Matiere:ajouterMatiere }
+supprimerMatiere:
+    path:     /supprimerMatiere /{id}
+    defaults: { _controller: ActiviteBundle:Matiere:supprimerMatiere }
+modifierMatiere:
+    path:     /modifierMatiere /{id}
+    defaults: { _controller: ActiviteBundle:Matiere:modifierMatiere }
+ajouterParascolaire:
+    path:     /ajouterParascolaire
+    defaults: { _controller: ActiviteBundle:Parascolaire:ajouterParascolaire }
+afficherParascolaire:
+    path:     /afficherParascolaire
+    defaults: { _controller: ActiviteBundle:Parascolaire:afficherParascolaire }
+supprimerParascolaire:
+    path:     /supprimerParascolaire /{id}
+    defaults: { _controller: ActiviteBundle:Parascolaire:SupprimerParascolaire }
+modifierParascolaire:
+    path:     /modifierParascolaire /{id}
+    defaults: { _controller: ActiviteBundle:Parascolaire:modifierParascolaire }
+ajax_search:
+    path:     /search
+    defaults: { _controller: ActiviteBundle:Matiere:searchMatiere }
+searchParascolaire:
+     path:     /searchParascolaire
+     defaults: { _controller: ActiviteBundle:Parascolaire:searchParascolaire }
+SMS:
+    path:     /SMS
+    defaults: { _controller: ActiviteBundle:Parascolaire:SMS }

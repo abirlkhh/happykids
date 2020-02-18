@@ -1,0 +1,71 @@
+{% extends 'back/admin.html.twig' %}
+ {% block body %}
+  <h1 class="text-center">LISTER TOUS LES MATIERES</h1>
+  <h4 class="text-blue">Search</h4>
+  <div class="sidebar-search">
+      <div class="input-group custom-search-form">
+          <input type="text" id="search" class="form-check-inline" placeholder="Search here">
+      </div>
+  </div>
+  <ul class="nav" id="side-menu">
+      <ul>
+          <ul class="nav nav-second-level" id="entitiesNav">
+          </ul>
+      </ul>
+  </ul>
+  <h2 class="text-xl-right"><a href="{{ path('ajouterMatiere') }}" >Add</a></h2>
+<table class="table table-hover">
+        <tr>
+            <td >Nom des matieres</td>
+            <td >Type de section</td>
+            <td >supprimer</td>
+            <td >Modifier</td>
+        </tr>
+    {% for matieres in matiere %}
+            <tr>
+                <td>{{ matieres.nomMatiere}}</td>
+                <td >{{ matieres.sections }}</td>
+                <td><a href="{{  path('supprimerMatiere',{'id': matieres.idMatiere}) }}"> SUPPRIMER </a></td>
+                <td ><a href="{{  path('modifierMatiere',{'id': matieres.idMatiere}) }}">MODIFIER</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+  <script type="text/javascript" src="{{ asset("jquery-3.4.1.min.js") }}"></script>
+  <script type="text/javascript">
+      $(function() {
+          var searchRequest = null;
+          $("#search").keyup(function() {
+              var minlength = 1;
+              var that = this;
+              var value = $(this).val();
+              var entitySelector = $("#entitiesNav").html('');
+              if (value.length >= minlength ) {
+                  if (searchRequest != null)
+                      searchRequest.abort();
+                  searchRequest = $.ajax({
+                      type: "GET",
+                      url: "{{ path('ajax_search') }}",
+                      data: {
+                          'q' : value
+                      },
+                      dataType: "text",
+                      success: function(msg){
+                          //we need to check if the value is the same
+                          if (value===$(that).val()) {
+                              var result = JSON.parse(msg);
+                              if (result['mati']){
+                              }else {
+                                  $.each(result, function(key, value) {
+                                      console.log(value);
+                                      entitySelector.append('<li><b>'+value +'</li><b><br>');
+                                  })
+                              }
+                          }
+                      }
+                  });
+              }
+          });
+      });
+  </script>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+
+{% extends 'back/admin.html.twig' %}
+{% block body %}
+    <table class="table table-head-fixed">
+        <h1 class="text-center">Ajouter un nouveau parascolaire </h1>
+
+        {{ form_start(f) }}
+        <tr>
+            <td>{{ form_label(f.typeParascolaire) }}</td>
+            <td>{{ form_widget(f.typeParascolaire) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.lieuParascolaire) }}</td>
+            <td>{{ form_widget(f.lieuParascolaire) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.dateDebutParascolaire) }}</td>
+            <td>{{ form_widget(f.dateDebutParascolaire) }}</td>
+            <td>{{ form_errors(f.dateDebutParascolaire) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.dateFinParascolaire) }}</td>
+            <td>{{ form_widget(f.dateFinParascolaire) }}</td>
+            <td>{{ form_errors(f.dateFinParascolaire) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_end(f) }}</td>
+        </tr>
+
+    </table>
+{% endblock %}

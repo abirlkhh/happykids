@@ -6,8 +6,12 @@ security:
     role_hierarchy:
         ADMIN: ROLE_ADMIN
         PARENT: ROLE_PARENT
-        ELEVE: ROLE_ELEVE
-        ENSEIGNANT: ROLE_ENSEIGNANT
+        MONITEUR: ROLE_MONITEUR
+        ANIMATEUR: ROLE_ANIMATEUR
+        CHEF: ROLE_CHEF
+        ENFANT: ROLE_ENFANT
+
+
 
     providers:
         fos_userbundle:
@@ -31,5 +35,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/access/admin, role: ROLE_ADMIN }
         - { path: ^/access/parent, role: ROLE_PARENT}
-        - { path: ^/access/eleve, role: ROLE_ELEVE }
-        - { path: ^/access/ensaignant, role: ROLE_ENSEIGNANT }
+        - { path: ^/access/moniteur, role: ROLE_MONITEUR}
+        - { path: ^/access/animateur, role: ROLE_ANIMATEUR}
+        - { path: ^/access/chef, role: ROLE_CHEF}
+        - { path: ^/access/enfant, role: ROLE_ENFANT}

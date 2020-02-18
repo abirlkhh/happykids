@@ -15,9 +15,11 @@ class RegistrationType extends AbstractType
         $builder->add('roles', ChoiceType::class, array(
                 'choices'=> array(
                     'Parent'   => 'Parent',
-                    'Eleve'   => 'Eleve',
-                    'Enseignant'   => 'Enseignant',
                     'Admin'   => 'Admin',
+                    'Animateur'   => 'Animateur',
+                    'moniteur'   => 'moniteur',
+                    'chef'   => 'chef',
+
                 ),
                 'multiple' => true,
                 'required' => true,

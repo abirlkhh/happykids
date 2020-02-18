@@ -1,0 +1,23 @@
+
+{% extends 'back/admin.html.twig' %}
+{% block body %}
+    <table class="table tab-content">
+        <h1 class="text-center">AJOUTER UNE NOUVELLE MATIERE </h1>
+        <tr>
+            <td>{{ form_start(form) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.nomMatiere) }}</td>
+            <td>{{ form_widget(form.nomMatiere) }}</td>
+        </tr>
+
+        <tr>
+
+            <td>{{ form_label(form.sections) }}</td>
+            <td>{{ form_widget(form.sections) }}</td>
+
+        </tr>
+
+        <td>{{ form_end(form) }}</td>
+    </table>
+{% endblock %}
