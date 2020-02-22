@@ -29,11 +29,12 @@ class ParascolaireController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($parascolaire);
             $em->flush();
+
             return $this->redirectToRoute("afficherParascolaire");
         }
         return $this->render('@Activite/Activite/ajouterParascolaire.html.twig', array('f' => $form1));
             }
-            $this->SMSAction();
+
         }
         return $this->redirectToRoute("fos_user_security_login");
     }
@@ -65,7 +66,7 @@ class ParascolaireController extends Controller
         $parascolaire = new parascolaire();
         $parascolaire = $this->getDoctrine()->getRepository(parascolaire::class)->find($id);
         $form = $this->createFormBuilder($parascolaire)
-            ->add('typeParascolaire',ChoiceType::class,['choices'=> ['VISITE CULTUREL' => 'VISISTE CULTUREL',  'EXCURSION' => 'EXCURSION','SORTIE' => 'SORTIE']])
+            ->add('typeParascolaire',ChoiceType::class,['choices'=> [ 'CHOISISSEZ'=>'','VISITE CULTUREL' => 'VISISTE CULTUREL',  'EXCURSION' => 'EXCURSION','SORTIE' => 'SORTIE']])
             ->add('lieuParascolaire')
             ->add('dateDebutParascolaire')
             ->add('dateFinParascolaire')

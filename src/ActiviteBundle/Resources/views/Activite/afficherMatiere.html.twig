@@ -14,8 +14,10 @@
       </ul>
   </ul>
   <h2 class="text-xl-right"><a href="{{ path('ajouterMatiere') }}" >Add</a></h2>
-<table class="table table-hover">
+     <script src="{{ asset('sorttable.js') }}"></script>
+<table class="table table-head-fixed sortable">
         <tr>
+            <td>identifiant</td>
             <td >Nom des matieres</td>
             <td >Type de section</td>
             <td >supprimer</td>
@@ -23,6 +25,7 @@
         </tr>
     {% for matieres in matiere %}
             <tr>
+                <td>{{ matieres.idMatiere }}</td>
                 <td>{{ matieres.nomMatiere}}</td>
                 <td >{{ matieres.sections }}</td>
                 <td><a href="{{  path('supprimerMatiere',{'id': matieres.idMatiere}) }}"> SUPPRIMER </a></td>

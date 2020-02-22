@@ -20,9 +20,10 @@
     <th class="text-right">{{ excursion }} : Enfants dans l'exursion</th>
     <th class="text-xl-right">{{ sortie }} : Enfants dans la sortie</th>
     </table>
-<table class="table table-hover">
+    <script src="{{ asset('sorttable.js') }}"></script>
+<table class="table table-head-fixed sortable">
     <tr>
-
+        <th>identifiant</th>
         <th>type</th>
         <th>lieu</th>
         <th>date debut</th>
@@ -30,15 +31,15 @@
         <th>identifiant Enfant</th>
         <th>supprimer</th>
         <th>Modifier</th>
-
     </tr>
     {% for p in parascolaire %}
         <tr>
+            <td>{{ p.idParascolaire}}</td>
             <td>{{ p.typeParascolaire}}</td>
             <td>{{ p.lieuParascolaire }}</td>
             <td>{{ p.dateDebutParascolaire | date('d/m/y,h:s') }}</td>
             <td>{{ p.dateFinParascolaire | date('d/m/y,h:s') }}</td>
-            <td>{{ p.enfant.id }}</td>
+            <td>E{{ p.enfant.id }}</td>
             <td><a href="{{  path('supprimerParascolaire',{'id': p.idParascolaire}) }}"> supprimer </a></td>
             <td><a href="{{  path('modifierParascolaire',{'id': p.idParascolaire}) }}">modifier</a></td>
         </tr>
@@ -71,7 +72,7 @@
                             }else {
                                 $.each(result, function(key, value) {
                                     console.log(value);
-                                    entitySelector.append('<table class="table table-head-fixed"><br>'+value +'</table><br>');
+                                    entitySelector.append('<table class="table table-head-fixed">'+value +'</table>');
                                 })
                             }
                         }

@@ -52,7 +52,7 @@ class MatiereController extends Controller
         $matiere= $this->getDoctrine()->getRepository(matieres::class)->find($id);
         $form = $this->createFormBuilder($matiere)
             ->add('nomMatiere')
-            ->add('sections',ChoiceType::class,['choices'=>['PETITE SECTION'=>'PETITE SECTION','MOYENNE SECTION'=>'MOYENNE SECTION','PRESCOLAIRE'=>'PRESCOLAIRE']])
+            ->add('sections',ChoiceType::class,['choices'=>['CHOISISSEZ'=>'','PETITE SECTION'=>'PETITE SECTION','MOYENNE SECTION'=>'MOYENNE SECTION','PRESCOLAIRE'=>'PRESCOLAIRE']])
             ->add('MODIFIER',SubmitType::class)
             ->getForm();
         $form->handleRequest($request);
