@@ -29,7 +29,6 @@ class ParascolaireController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($parascolaire);
             $em->flush();
-
             return $this->redirectToRoute("afficherParascolaire");
         }
         return $this->render('@Activite/Activite/ajouterParascolaire.html.twig', array('f' => $form1));
@@ -48,7 +47,7 @@ class ParascolaireController extends Controller
         $excursion=$em->createQuery("select count('u') from ActiviteBundle:parascolaire u where u.typeParascolaire like '%EXCURSION%' ")->getresult();
         $sortie=$em->createQuery("select count('u') from ActiviteBundle:parascolaire u where u.typeParascolaire like '%SORTIE EN NATURE%' ")->getresult();
 
-        return $this->render("@Activite/Activite/afficherParascolaire.html.twig",array('parascolaire'=> $parascolaire,'count'=>$count[0][1],'excursion'=>$excursion[0][1],'sortie'=>$excursion[0][1]));
+        return $this->render("@Activite/Activite/afficherParascolaire.html.twig",array('parascolaire'=> $parascolaire,'count'=>$count[0][1],'excursion'=>$excursion[0][1],'sortie'=>$sortie[0][1]));
 
     }
     /*******************************SUPPRIMER_PARASCOLAIRE******************************************/
@@ -116,5 +115,12 @@ class ParascolaireController extends Controller
                 'body' => 'Bonjour Madame/Monsieur nous vous informons que votre enfant a un sortie'
             )
         );
+    }
+    function affichefrontAction()
+    {
+        $parascolaire=$this->getDoctrine()->getRepository('ActiviteBundle:parascolaire')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $enfant=$em->getRepository('ActiviteBundle:parascolaire')->findAll();
+        return $this->render("@Activite/Activite/affichefront.html.twig",array('parascolaire'=> $parascolaire));
     }
 }

@@ -82,5 +82,9 @@ class MatiereController extends Controller
         return new Response(json_encode($result));
     }
     /******************************************************************************/
-
+    function afficheFMAction()
+    {
+        $matiere=$this->getDoctrine()->getRepository('ActiviteBundle:matieres')->findAll();
+        return $this->render("@Activite/Activite/afficheFM.html.twig",array('matiere'=> $matiere));
+    }
 }

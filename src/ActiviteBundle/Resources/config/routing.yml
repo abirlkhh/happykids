@@ -34,3 +34,9 @@ searchParascolaire:
 SMS:
     path:     /SMS
     defaults: { _controller: ActiviteBundle:Parascolaire:SMS }
+affichefront:
+    path:     /affichefront
+    defaults: { _controller: ActiviteBundle:Parascolaire:affichefront }
+afficheFM:
+        path:     /afficheFM
+        defaults: { _controller: ActiviteBundle:Matiere:afficheFM }
